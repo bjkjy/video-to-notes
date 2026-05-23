@@ -92,16 +92,6 @@ duration < 3600s (60min)→ medium
 duration >= 3600s       → large
 ```
 
-**视频时长与模型选择** — 用 `yt-dlp --dump-json` 精确获取：
-
-```
-duration < 300s (5min)  → tiny
-duration < 900s (15min) → base
-duration < 1800s (30min)→ small
-duration < 3600s (60min)→ medium
-duration >= 3600s       → large
-```
-
 ### 0.3 一次性确认摘要
 
 所有信息自动收集完成后，输出一份完整摘要请用户确认：
@@ -203,12 +193,19 @@ whisper "{audio_file}.wav" --model base --language zh --output_format srt --outp
 ### 笔记必须包含
 
 - 标题 + 来源信息
-- 思维导图（Mermaid 或 ASCII）
+- 思维导图（最好是 Mermaid **mindmap** 格式）
 - 章节内容（含对比表/复杂度分析）
 - 选择指南 / 决策树
 - 知识提炼 / Q&A
 - 总结（核心要点回顾）
 - 笔记生成时间
+
+### Mermaid mindmap 注意事项
+
+- 使用 `mindmap` 语法（非 `graph TD`）
+- 节点文本中含括号 `()` 时，**必须**将整个文本用双引号包裹：`"scanSkills(): 递归扫描"`
+- 嵌套结构用缩进表示层级关系
+- 根节点可用 `root((text))` 双圆样式
 
 ### Gate 3: 笔记生成完成 → 进入 Step 4
 
