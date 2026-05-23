@@ -85,11 +85,11 @@ metadata:
 **视频时长与模型选择** — 用 `yt-dlp --dump-json` 精确获取：
 
 ```
-duration < 300s (5min)  → tiny
-duration < 900s (15min) → base
-duration < 1800s (30min)→ small
-duration < 3600s (60min)→ medium
-duration >= 3600s       → large
+duration < 900s (15min)  → tiny
+duration < 1800s (30min) → base
+duration < 2700s (45min) → small
+duration < 3600s (60min) → medium
+duration >= 3600s        → large
 ```
 
 ### 0.3 一次性确认摘要
@@ -100,7 +100,7 @@ duration >= 3600s       → large
 ━━━ 需求确认 ━━━━━━━━━━━━━━━━━━━━━━━━━━
 标题:  {视频标题}
 来源:  B站 (自动识别)
-时长:  5分00秒 → base 模型
+ 时长:  20分00秒 → base 模型
 输出:  Markdown (从 prompt 识别)
 语言:  中文 (平台默认)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
