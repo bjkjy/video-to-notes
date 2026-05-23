@@ -82,7 +82,15 @@ metadata:
 
 **视频语言**：B站默认中文，YouTube 检查 `language` 字段，其他默认中文。
 
-**视频时长与模型选择** — 用 `yt-dlp --dump-json` 获取时长，按 Step 2 的模型选择表确定模型。
+**视频时长与模型选择** — 用 `yt-dlp --dump-json` 获取时长，按以下规则选择：
+
+```
+duration < 900s (15min)  → tiny
+duration < 1800s (30min) → base
+duration < 2700s (45min) → small
+duration < 3600s (60min) → medium
+duration >= 3600s        → large
+```
 
 ### 0.3 一次性确认摘要
 
@@ -151,23 +159,13 @@ yt-dlp -f "bestvideo+bestaudio" -o "%(id)s_video.%(ext)s" "<URL>"
 
 ### 模型选择
 
-根据视频长度选择模型：
-
-| 视频长度 | 推荐模型 | 速度 | 准确率 |
-|----------|----------|------|--------|
-| < 15分钟 | `tiny` | 最快 | 一般 |
-| 15-30分钟 | `base` | 快 | 较好 |
-| 30-45分钟 | `small` | 中等 | 好 |
-| 45-60分钟 | `medium` | 较慢 | 很好 |
-| > 60分钟 | `large` | 最慢 | 最好 |
-
-默认使用 `base` 模型（平衡速度和准确率）。
+使用 Step 0 选定的模型（见 Step 0 的模型选择表）。
 
 ### 执行命令
 
 ```bash
 cd ~/download
-whisper "{audio_file}.wav" --model base --language zh --output_format srt --output_dir .
+whisper "{audio_file}.wav" --model {Step0选定模型} --language zh --output_format srt --output_dir .
 ```
 
 ### 语言检测
