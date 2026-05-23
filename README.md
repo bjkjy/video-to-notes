@@ -76,6 +76,25 @@ B站、YouTube、抖音、小红书、播客等 yt-dlp 支持的所有平台
 视频：`.mp4` `.mkv` `.mov` `.webm` `.avi`
 音频：`.mp3` `.wav` `.m4a` `.flac` `.ogg`
 
+## 同类 Skill 对比
+
+| 维度 | **video-to-notes** | [video-transcript](https://github.com/openclaw/skills) | [faster-whisper](https://github.com/openclaw/skills) | [summarize](https://github.com/openclaw/openclaw) | [youtube-transcript](https://github.com/openclaw/skills) | [Video Processor](https://github.com/disler/claude-code-hooks-multi-agent-observability) |
+|------|:---:|:---:|:---:|:---:|:---:|:---:|
+| 视频下载 | ✅ yt-dlp | ❌ | ❌ | ❌ | ✅ yt-dlp | ✅ ffmpeg |
+| 语音转文字 | ✅ Whisper | ❌ | ✅ faster-whisper | ❌ | ❌（字幕） | ✅ Whisper |
+| **结构化笔记** | ✅ | ❌ | ❌ | ❌（摘要） | ❌ | ❌ |
+| **思维导图** | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| **对比表格** | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| **选择指南** | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| **面试考点** | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| **质量评测** | ✅ 双评测 | ❌ | ❌ | ❌ | ❌ | ❌ |
+| **门控机制** | ✅ 5 道门控 | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Inversion 模式 | ✅ 先确认后执行 | ❌ | ❌ | ❌ | ❌ | ❌ |
+| 输入平台 | B站/YouTube/抖音/播客等 | — | 本地音频 | URL/播客 | YouTube | 本地视频 |
+| 输出 | Markdown | 文本/SRT | SRT/JSON | 摘要文本 | 字幕文本 | 文本/SRT |
+
+> video-to-notes 是唯一覆盖 **完整流水线**（下载 → 转录 → 结构化笔记 → 质量评测 → 交付）的 Skill。
+
 ## 许可证
 
 MIT
