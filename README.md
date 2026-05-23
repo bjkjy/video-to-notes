@@ -19,7 +19,7 @@
 
 > 安装 video-to-notes skill，从 https://github.com/bjkjy/video-to-notes 克隆到 skills 目录
 
-Agent 会自动完成克隆和配置。如果 Agent 需要手动路径，目标位置是 `~/.opencode/skills/video-to-notes`。
+Agent 会自动完成克隆和配置。
 
 ## 依赖安装
 
