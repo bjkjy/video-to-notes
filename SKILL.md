@@ -82,15 +82,7 @@ metadata:
 
 **视频语言**：B站默认中文，YouTube 检查 `language` 字段，其他默认中文。
 
-**视频时长与模型选择** — 用 `yt-dlp --dump-json` 精确获取：
-
-```
-duration < 900s (15min)  → tiny
-duration < 1800s (30min) → base
-duration < 2700s (45min) → small
-duration < 3600s (60min) → medium
-duration >= 3600s        → large
-```
+**视频时长与模型选择** — 用 `yt-dlp --dump-json` 获取时长，按 Step 2 的模型选择表确定模型。
 
 ### 0.3 一次性确认摘要
 
