@@ -13,11 +13,22 @@
 - **门控机制** — 每一阶段都有门控检查，不过关不往下走
 - **Markdown 输出** — 默认生成 `.md` 文件，PDF/Word 可借助 pandoc 自行转换
 
+## 仓库地址
+
+| 平台 | 地址 |
+|------|------|
+| GitHub | https://github.com/bjkjy/video-to-notes |
+| Gitee | https://gitee.com/BJKgitee/video-to-notes |
+
 ## 安装
 
 直接把下面这条指令发给你的 Agent：
 
 > 安装 video-to-notes skill，从 https://github.com/bjkjy/video-to-notes 克隆到 skills 目录
+
+国内用户推荐使用 Gitee 镜像：
+
+> 安装 video-to-notes skill，从 https://gitee.com/BJKgitee/video-to-notes 克隆到 skills 目录
 
 Agent 会自动完成克隆和配置。
 
