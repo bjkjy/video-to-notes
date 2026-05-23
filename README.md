@@ -38,12 +38,26 @@ bash scripts/check-deps.sh
 
 ## 工作流概览
 
-```
-URL/本地文件 → yt-dlp 下载音频 → Whisper 转文字
-  → LLM 生成结构化笔记 → 双评测 → 交付 Markdown
+```mermaid
+graph TD
+    A["📹 URL / 本地文件"] --> B["🔍 Step 0: 前置确认"]
+    B --> C["⬇️ Step 1: yt-dlp 下载音频"]
+    C -->|Gate 1: 音频 ≥ 1KB| D["📝 Step 2: Whisper 转文字"]
+    D -->|Gate 2: 字幕非空| E["🧠 Step 3: LLM 生成笔记"]
+    E -->|Gate 3: 含思维导图+表格| F["⭐ Step 4: 双评测"]
+    F -->|Gate 4: 双评测通过| G["📄 Step 5: 交付 Markdown"]
+    F -->|❌ 不通过| E
+
+    style A fill:#e3f2fd,stroke:#1565c0
+    style B fill:#fff3e0,stroke:#e65100
+    style C fill:#f3e5f5,stroke:#7b1fa2
+    style D fill:#e8f5e9,stroke:#2e7d32
+    style E fill:#fce4ec,stroke:#c62828
+    style F fill:#e0f7fa,stroke:#00838f
+    style G fill:#fff8e1,stroke:#f9a825
 ```
 
-每个阶段有严格的门控检查，确保输出质量。
+每个阶段有严格的门控检查，不过关自动回退，确保输出质量。
 
 ## 内置脚本与评测
 
