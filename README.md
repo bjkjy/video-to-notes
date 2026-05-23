@@ -13,9 +13,30 @@
 - **门控机制** — 每一阶段都有门控检查，不过关不往下走
 - **Markdown 输出** — 默认生成 `.md` 文件，PDF/Word 可借助 pandoc 自行转换
 
-## 快速开始
+## 安装
 
-### 依赖安装
+```bash
+# 克隆到 OpenCode skills 目录
+git clone https://github.com/bjkjy/video-to-notes.git ~/.opencode/skills/video-to-notes
+```
+
+如果使用 `opencode.json` 配置文件，添加如下引用：
+
+```json
+{
+  "skills": {
+    "video-to-notes": {
+      "name": "video-to-notes",
+      "description": "将视频/音频自动转换为结构化学习笔记",
+      "path": "~/.opencode/skills/video-to-notes"
+    }
+  }
+}
+```
+
+> 部分 Agent 实现会自动扫描 `~/.opencode/skills/` 目录，克隆即可用，无需配置。
+
+## 依赖安装
 
 ```bash
 # yt-dlp — 下载音频
@@ -31,10 +52,17 @@ pip install openai-whisper --break-system-packages
 bash scripts/check-deps.sh
 ```
 
-### 使用方式
+## 使用方式
 
-1. 在 LLM 对话中提供视频 URL，Skill 会自动处理
-2. 你只需确认需求摘要，其余全自动
+给 Agent 发送以下任意一条指令即可触发：
+
+> - "帮我把这个视频转成学习笔记 https://www.bilibili.com/video/BV1xx..."
+> - "把这个 YouTube 视频转成笔记 https://youtu.be/xxx"
+> - "总结这个视频并生成学习笔记 https://..."
+
+Agent 会自动执行：**前置确认 → 下载音频 → 转文字 → 生成结构化笔记 → 质量评测 → 交付**。
+
+你只需在确认页回复 `Y`，其余全自动。
 
 ## 工作流概览
 
