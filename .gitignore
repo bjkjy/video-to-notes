@@ -1,0 +1,32 @@
+# Audio / video
+*.wav
+*.mp3
+*.mp4
+*.mkv
+*.webm
+*.m4a
+*.flac
+*.ogg
+
+# Generated subtitles
+*.srt
+*.vtt
+*.ass
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
