@@ -15,26 +15,11 @@
 
 ## 安装
 
-```bash
-# 克隆到 OpenCode skills 目录
-git clone https://github.com/bjkjy/video-to-notes.git ~/.opencode/skills/video-to-notes
-```
+直接把下面这条指令发给你的 Agent：
 
-如果使用 `opencode.json` 配置文件，添加如下引用：
+> 安装 video-to-notes skill，从 https://github.com/bjkjy/video-to-notes 克隆到 skills 目录
 
-```json
-{
-  "skills": {
-    "video-to-notes": {
-      "name": "video-to-notes",
-      "description": "将视频/音频自动转换为结构化学习笔记",
-      "path": "~/.opencode/skills/video-to-notes"
-    }
-  }
-}
-```
-
-> 部分 Agent 实现会自动扫描 `~/.opencode/skills/` 目录，克隆即可用，无需配置。
+Agent 会自动完成克隆和配置。如果 Agent 需要手动路径，目标位置是 `~/.opencode/skills/video-to-notes`。
 
 ## 依赖安装
 
