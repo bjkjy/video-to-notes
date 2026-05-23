@@ -192,10 +192,18 @@ whisper "{audio_file}.wav" --model {Step0选定模型} --language zh --output_fo
 
 ### Mermaid mindmap 注意事项
 
-- 使用 `mindmap` 语法（非 `graph TD`）
-- 节点文本中含括号 `()` 时，**必须**将整个文本用双引号包裹：`"scanSkills(): 递归扫描"`
-- 嵌套结构用缩进表示层级关系
-- 根节点可用 `root((text))` 双圆样式
+- 使用 `mindmap` 语法（非 `graph TD`），**代码围栏必须是 `mermaid`**（不是 `mindmap`）：
+  ```````
+  ```mermaid
+  mindmap
+    root((标题))
+  ```
+  ```````
+- 节点文本中含括号 `()` 时，**必须**将整个文本用双引号包裹：
+  - ✅ `"万口 (WAN) - 连接光猫"`
+  - ❌ `万口 (WAN) - 连接光猫` → 解析器将 `(` 视为语法标记，报 `SPACELIST` 错误
+- 根节点 `root((text))` 的双圆 `(( ))` 是 Mermaid 内置形状语法，**不需要**加引号
+- 嵌套结构用**一致的缩进**（全部空格，禁止混用 Tab）表示层级关系，否则可能报 `SPACELINE` / `SPACELIST` 解析错误
 
 ### Gate 3: 笔记生成完成 → 进入 Step 4
 
